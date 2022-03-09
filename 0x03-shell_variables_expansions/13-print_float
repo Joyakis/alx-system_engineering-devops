@@ -1,2 +1,2 @@
 #!/bin/bash
-export NUM=3.00 \'n'
+export NUM=float \'n'
