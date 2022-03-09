@@ -1,2 +1,2 @@
 #!/bin/bash
-num='echo bc -l' \'n'
+export NUM=3.00 \'n'
