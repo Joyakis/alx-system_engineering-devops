@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Script that configures Nginx server with a custom header
+#Script that configures Nginx server with a custom header
+#shellcheck disable=SC2154
 apt-get -y update
 apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo sed -i 's/server {/&\n\tadd_header X-Served-By ${HOSTNAME};'/etc/nginx/sites-available/default
-sudo sed -i 's/http {/&\n\tadd_header X-Served-By ${HOSTNAME};'/etc/nginx/nginx.conf
+sudo sed -i 's/http {/&\n\tadd_header X-Served-By $HOSTNAME;/' /etc/nginx/nginx.conf
+sudo sed -i 's/server {/&\n\tadd_header X-Served-By $HOSTNAME;/' /etc/nginx/sites-available/default
 sudo service nginx restart
